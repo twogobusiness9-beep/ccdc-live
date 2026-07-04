@@ -63,7 +63,7 @@ html, body {
 	margin: 0;
 	padding: 0;
 	width: 100%;
-	overflow-x: hidden;
+	overflow-x: clip;
 }
 
 body {
@@ -148,16 +148,14 @@ li { margin-bottom: 0.35rem; }
 .topbar-contact { display: flex; gap: 1.4rem; flex-wrap: wrap; }
 .topbar-social { display: flex; gap: 0.9rem; }
 
-/* Header / nav — position:fixed so it follows on scroll (proven pattern) */
+/* Header / nav — position:sticky so it follows on scroll without covering the top bar */
 .site-header {
-	position: fixed; top: 0; left: 0; right: 0; width: 100%; z-index: 99999;
+	position: sticky; top: 0; z-index: 99999;
 	background: rgba(255, 255, 255, 0.94);
 	backdrop-filter: saturate(1.4) blur(8px);
 	border-bottom: 1px solid var(--line);
 }
 .site-header .container { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 0.85rem; padding-bottom: 0.85rem; }
-/* Spacer so fixed header doesn't cover page content */
-.header-spacer { height: 74px; }
 
 .brand { display: flex; align-items: center; gap: 0.7rem; font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--ink); }
 .brand:hover { color: var(--ink); }
@@ -296,7 +294,6 @@ li { margin-bottom: 0.35rem; }
 
 @media (max-width: 720px) {
 	.topbar { display: none; }
-	.header-spacer { height: 66px; }
 	.nav-toggle { display: block; z-index: 100001; }
 	.header-cta .btn { display: none; }
 
